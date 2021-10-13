@@ -10,10 +10,10 @@ The COVID-19 pandemic affects not only public health, but also the economy, educ
 <img src="https://i.imgur.com/NFvUxkw.png" alt="drawing" width="250"/>
 </p>
 
-**Mutuals** is an app that will allow the user to connect with lots of different people who share the same interests. 
+**Mutuals** is an app that will allow end user to connect with a diverse group of people sharing the same interests. 
 
-An inovation that we would like to develop from our app is a **built in chat feature** which will automatically appear once both of them are matched. 
-There will also be a **button which will randomly greet someone with the same interest**, this is to help users who lack confidence to reach out first. 
+An innovation that we would like to develop through our app is a **built in chat feature** which will automatically appear when two end users are matched. 
+There will also be a **functionality that will allow end user to shuffle a group of people with the same interest and randomly select a user to chat with.** This can be used as a starting point, as a new user starts to navigate throughout the app, especially those who lack in confidence to start a new conversation with another end user. 
 
 Lastly, since we do not recommend them to physically meet, our application will also provide call feature to ease the communication, however this is for feature implementation due to our lack of skills 👋🏼
 
