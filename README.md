@@ -1,4 +1,4 @@
-# Midterm Project - Group I03 test123
+# Midterm Project - Group I03 
 
 🔗 **heroku app:** https://midterm-project-pbp.herokuapp.com/
 
