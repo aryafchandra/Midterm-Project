@@ -1,6 +1,6 @@
 # Midterm Project - Group I03 
 
-🔗 **heroku app:** https://https://mutuals-io3.herokuapp.com/
+🔗 **heroku app:** https://mutuals-io3.herokuapp.com/
 
 # 📱 Our application idea
 The COVID-19 pandemic affects not only public health, but also the economy, education, and social life of the Indonesian people. Especially younger generations who spent most of their time socializing. 
