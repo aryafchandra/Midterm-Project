@@ -18,19 +18,21 @@ There will also be a **functionality that will allow end user to shuffle a group
 Lastly, since we do not recommend them to physically meet, our application will also provide call feature to ease the communication, however this is for feature implementation due to our lack of skills 👋🏼
 
 # 💡 Modules that we will implement
-➡️ log-in or sign-up system
+➡️ log-in or sign-up system: Arya 
 
-➡️ create the object relational model which records account data 
+➡️ create the object relational model which records account data: Ryan
 
-➡️ Create the user interest form, which can be modified anytime 
+➡️ Create the user interest form, which can be modified anytime: Aldi
 
-➡️ Create the randomizer button
+➡️ Create a button that direct to a google meet page: Audi
 
-➡️ Create the suggested friends based on the same interest 
+➡️ Create the randomizer button: Kevin
 
-➡️ Create the User interface for the website 
+➡️ Create the suggested friends based on the same interest: Felix
 
-➡️ Create the chat feature 
+➡️ Create the User interface for the website: Audi
+
+➡️ Create the chat feature: Joel
 
 # 🧑🏻 User persona
 <p align="center">
