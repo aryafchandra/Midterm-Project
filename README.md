@@ -36,7 +36,7 @@ Lastly, since we do not recommend them to physically meet, our application will 
 
 # 🧑🏻 User persona
 <p align="center">
-<img src="https://i.imgur.com/Ma6iRjk.png" alt="drawing" width="700"/>
+<img src="https://i.imgur.com/5pOnJgS.png" alt="drawing" width="700"/>
 </p>
 
 # 👩🏻‍💻 Group Members: 
