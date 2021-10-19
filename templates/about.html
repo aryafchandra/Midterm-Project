@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
     <title>mutuals-about</title>
 </head>
 <header>
@@ -13,14 +14,14 @@
       <ul class="nav_links">
         <li><a href="#"> Login </a></li>
         <li><a href="#"> Friends </a></li>
-        <li><a href="#"> About </a></li>
-        <li><a href="#"> Home </a></li>
+        <li><a href="about"> About </a></li>
+        <li><a href="/"> Home </a></li>
       </ul>
     </nav>
   </header>
 
 <body style="text-align: center;">
-    <div class="container"> 
+    <div class="container">
         <div> Behind the scenes </div>
         <img src="https://i.imgur.com/Rd1Vofr.png">
     </div>
@@ -34,7 +35,7 @@
           <td> <img src="https://i.imgur.com/XPPOg0x.png"> </td>
           <td> <img src="https://i.imgur.com/sI6jg26.png"> </td>
       </tr>
-      <tr> 
+      <tr>
           <td class="name"> Joel </td>
           <td class="name"> Ryan </td>
           <td class="name"> Arya </td>
@@ -47,7 +48,7 @@
             <td> <img src="https://i.imgur.com/qX31w6a.png"> </td>
             <td> <img src="https://i.imgur.com/RhOgUus.png"> </td>
         </tr>
-        <tr > 
+        <tr >
             <td class="name"> Kevin </td>
             <td class="name"> Audi </td>
             <td class="name"> Felix </td>
