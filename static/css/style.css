@@ -1,10 +1,12 @@
 /* Project-wide style */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+*/
 
 body {
   font-family: 'Rubik', sans-serif;
-} */
+} 
+
 /* navigation bar */
 *{
   box-sizing: border-box;
@@ -62,7 +64,7 @@ ul li a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
-/* end navigation bar */
+/* homepage writing */
 
 .container{
   display: flex;
@@ -91,4 +93,31 @@ ul li a:hover::after {
 .images{
   width: 10%;
   height: auto;
+}
+/* log in button */
+.button{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 10px;
+  padding: 10px 45px;
+  text-align: center;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  font-family: futura;
+  border-radius: 10px;
+  background-color:#FFF385;
+  color: black;
+  border: 10px;
+  float: center;
+  box-shadow: 2px 2px 2px rgb(230, 222, 222);
+}
+.button:hover{
+  background-color:black;
+  color: white;
+}
+.signin{
+  margin-top: 10%;
+  font-size: 20px;
+  
 }
