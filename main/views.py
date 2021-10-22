@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from .models import User
+from .forms import InterestForm
 
 currentname = ""
 currentinterest = "snapping"
-
-from .forms import InterestForm
->>>>>>> 23eade9601f0d7675aaca23ca6e1dd58c6019235
 
 def main(request):
     return render(request, 'base.html')
