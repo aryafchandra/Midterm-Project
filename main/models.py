@@ -12,4 +12,3 @@ class User(models.Model):
     interest = models.CharField(max_length=200)
     domicile = models.CharField(max_length=30)
     gender = models.CharField(max_length=10)
-    

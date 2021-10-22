@@ -12,7 +12,7 @@ def interest(request):
     context = {}
 
     form = InterestForm(request.POST or None)
-    
+
     if request.method == 'POST':
         if form.is_valid():
             # save the form data to model
@@ -23,5 +23,3 @@ def interest(request):
 
     context['form'] = form
     return render(request, "forms.html", context)
-
-
