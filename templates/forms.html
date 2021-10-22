@@ -4,66 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+   
 
 </head>
-<header>
-    <img class="logo" src="https://i.imgur.com/6ccUWSG.png" alt="logo">
-    <nav>
-      <ul class="nav_links">
-        <li><a href="#"> {{fullname}} </a></li>
-        <li><a href="#"> Friends </a></li>
-        <li><a href="about"> About </a></li>
-        <li><a href=""> Home </a></li>
-      </ul>
-    </nav>
-  </header>
+{% include "navbar_after.html" %}
 <body>
     <div class="container">
-        <div class="card w-100">
-            <div class="col-9">
-                <div class="card-title"> Hello!
-                
+        <div class="row">
+            <form action="" method="POST"> {% csrf_token %}
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="fullname" class="form-label">To</label>
+                        <input type="text"   class="form-control" id="fname" name="fullname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthdate" class="form-label">DOB</label>
+                        <input type="text" class="form-control" id="DOB" name="DOB">
+                    </div>
+                    <div class="mb-3">
+                          <label for="domicile" class="form-label">Domicile</label>
+                          <input type="text"  class="form-control" id="Domicile" name="Domicile">
+                    </div>
+                    
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-            <div class="col-9">
-                <form action="" method="POST">
-                    {% csrf_token %}
+                <div class="col-6">
                     <div class="mb-3">
-                        <label for="fullname" class="form-label">Fullname</label>
-                        <input type="text" class="form-control" id="fname" name="fullname">
+                        <label for="gender" class="form-label">Gender</label>
+                        <input type="text"   class="form-control" id="gender" name="gender">
                     </div>
                     <div class="mb-3">
-                        <label for="birthdate" class="form-label">Birthdate</label>
-                        <input type="text" class="form-control" id="bdate" name="birthdate">
+                        <div class="col-3">
+                            <label for="line" class="form-label">Line ID</label>
+                            <input type="text"   class="form-control" id="line" name="line">    
+                        </div>
+                        <div class="col-3">
+                            <label for="instagram" class="form-label">Instagram</label>
+                            <input type="text"   class="form-control" id="instagram" name="instagram">
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="age" class="form-label">Age</label>
-                        <input type="text" class="form-control" id="age" name="age">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text"   class="form-control" id="email" name="Email">
                     </div>
-                    <div class="mb-3">
-                        <label for="domicile" class="form-label">Domicile</label>
-                        <input type="text" class="form-control" id="domicile" name="domicile">
-
-                    </div>
-                </form>
-            </div>
-            <div class="col-5">
-                <h2>Your interests</h2>
-                <div class="card" style="width: 300%;">
-                    <p>Cycling</p>
-                    <p>Watch Movies</p>
                 </div>
-            </div>
+                <input type="submit" class="btn btn-success" value="Submit">
+            </form>
+            
 
-        </div>
-        <input type="submit" class="btn btn-warning" value="Continue">
+            
+
+            
+       
+        
     </div>
 </body>
 </html>
