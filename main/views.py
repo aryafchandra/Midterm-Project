@@ -4,11 +4,15 @@ from .models import User
 currentname = ""
 currentinterest = "snapping"
 
+from .forms import InterestForm
+>>>>>>> 23eade9601f0d7675aaca23ca6e1dd58c6019235
+
 def main(request):
     return render(request, 'base.html')
 
 def about(request):
     return render(request, 'about.html')
+
 
 def suggestion(request):
     #if name == "":
@@ -29,3 +33,19 @@ def suggestion(request):
     response = {'users': recomendedpeople}
     print(response)
     return render(request, 'suggestion.html', response)
+
+def interest(request):
+    context = {}
+
+    form = InterestForm(request.POST or None)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            # save the form data to model
+            form.save()
+            notes = User.objects.all()
+            response = {'notes': notes}
+            return render(request, 'homepage.html', response)
+
+    context['form'] = form
+    return render(request, "forms.html", context)
