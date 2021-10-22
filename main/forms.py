@@ -5,5 +5,5 @@ from .models import Bio
 class InterestForm(ModelForm):
     class Meta:
         model = Bio
-        fields = "__all__"
+        fields = ["fullname", "DOB","domicile", "gender", "line", "instagram", "email"]
         

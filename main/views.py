@@ -19,9 +19,9 @@ def interest(request):
             form.save()
             notes = Bio.objects.all()
             response = {'notes': notes}
-            return render(request, 'lab4_index.html', response)
+            return render(request, 'homepage.html', response)
 
     context['form'] = form
-    return render(request, "lab4_form.html", context)
+    return render(request, "forms.html", context)
 
 
