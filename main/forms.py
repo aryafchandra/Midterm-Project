@@ -1,9 +1,9 @@
 from django.forms import ModelForm
 from django.db import models
-from .models import Bio
+from .models import User
 
 class InterestForm(ModelForm):
     class Meta:
-        model = Bio
+        model = User
         fields = ["fullname", "DOB","domicile", "gender", "line", "instagram", "email"]
         

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Bio
+from .models import User
 from .forms import InterestForm
 
 def main(request):
@@ -17,7 +17,7 @@ def interest(request):
         if form.is_valid():
             # save the form data to model
             form.save()
-            notes = Bio.objects.all()
+            notes = User.objects.all()
             response = {'notes': notes}
             return render(request, 'homepage.html', response)
 

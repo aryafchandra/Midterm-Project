@@ -11,6 +11,6 @@ class User(models.Model):
     instagram = models.CharField(max_length=30)
     line = models.CharField(max_length=32)
     interest = models.CharField(max_length=200)
-    domicile = models.IntegerField(max_length=30)
+    domicile = models.CharField(max_length=30)
     gender = models.CharField(max_length=10)
     
