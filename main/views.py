@@ -2,8 +2,8 @@ from django.shortcuts import render
 from .models import User
 from .forms import InterestForm
 
-currentname = ""
-currentinterest = "snapping"
+currentname = ""    # current user name
+currentinterest = "snapping" # current user interest
 
 def main(request):
     return render(request, 'base.html')
@@ -19,18 +19,15 @@ def suggestion(request):
     currentinterestlst = currentinterest.split(",")
     recomendedpeople = []
     users =  User.objects.all().values() # TODO Implement this
-    print(users)
     for data in users:
         interest = data.get('interest')
         interestlst = interest.split(",")
-        print(set(interestlst).intersection(currentinterestlst))
         if set(interestlst).intersection(currentinterestlst) != set():
-            recomendedpeople.append({'name':data.get('name'), 'interest':interest})
+            recomendedpeople.append({'fullname':data.get('fullname'), 'interest':interest})
 
     #set notes as a collection of object Notes
     response = {'users': recomendedpeople}
-    print(response)
-    return render(request, 'suggestion.html', response)
+    return render(request, 'suggestion.html', response) #temporary html page
 
 def interest(request):
     context = {}
