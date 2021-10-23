@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<header>
+  <img class="logo" src="https://i.imgur.com/6ccUWSG.png" alt="logo">
+  <nav>
+    <ul class="nav_links">
+      <li><a href="#"> Login </a></li>
+      <li><a href="#"> Friends </a></li>
+      <li><a href="about"> About </a></li>
+      <li><a href=""> Home </a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<body style="text-align: center;">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Interest</th>
+    </tr>
+    <!-- TODO loop from Friend model -->
+    <!-- EXAMPLE SECTION -->
+      {% for user in users %}
+      <tr>
+        <td>{{user.fullname}}</td>
+        <td>{{user.interest}}</td>
+      </tr>
+      {% endfor %}
+    <!-- END SECTION -->
+  </table>
+</body>
+
+
+</html>
