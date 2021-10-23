@@ -1,0 +1,10 @@
+div {
+    display: inline-block;
+}
+
+.left{
+    float: left;
+}
+.clear{
+    clear: both;
+}
