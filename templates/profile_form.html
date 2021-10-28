@@ -5,8 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.combine').click(function(){
+          var interestinpt="";
+          $('.combine:checked').each(function(){
+            interestinpt += $(this).val()+","
+          });
+          $('#interestrslt').val(interestinpt)
+        });
+      });
+    </script>
 
 </head>
 {% include "navbar_after.html" %}
@@ -18,7 +30,7 @@
               <form action ="" method="POST"> {% csrf_token %}
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Fullname</label>
-                  <input type="text" class="form-control" id="fname" name="fullname" style="width: 335px; height: 50px;">    
+                  <input type="text" class="form-control" id="fname" name="fullname" style="width: 335px; height: 50px;">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Birthdate</label>
@@ -36,7 +48,7 @@
                   <option value="volvo">Male</option>
                   <option value="saab">Female</option>
                   <option value="opel">Other</option>
-                </select>          
+                </select>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Email</label>
@@ -50,21 +62,22 @@
                   </div>
                   <div class="col-6">
                     <label for="exampleInputPassword1" class="form-label">Instagram</label>
-                    <input type="text" class="form-control" id="ig"  name="instagram" style="width: 165px; height: 50px;"> 
-                  </div>      
+                    <input type="text" class="form-control" id="ig"  name="instagram" style="width: 165px; height: 50px;">
+                  </div>
                 </div>
               </div>
-              <input type="checkbox" value="Audi"> Audi
-              <input type="checkbox" value="Audi"> Chandra
-              <input type="checkbox" value="Audi"> Kevin
-              
-              <button type="submit" class="btn btn-success">Submit</button>
+              <input type="checkbox" value="Audi" class="combine"/> Audi
+              <input type="checkbox" value="Chandra" class="combine"/> Chandra
+              <input type="checkbox" value="Kevin" class="combine"/> Kevin
+              <input type="text" name="interest" id="interestrslt"/>
+
+              <button type="submit" class="btn btn-success" value="Submit">Submit</button>
             </form>
             </div>
           </div>
         </div>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
       </script>
   </body>
