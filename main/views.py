@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import User
-from .forms import InterestForm
+from .forms import ProfileForm
 
 currentname = ""    # current user name
 currentinterest = "snapping" # current user interest
@@ -29,10 +29,10 @@ def suggestion(request):
     response = {'users': recomendedpeople}
     return render(request, 'suggestion.html', response) #temporary html page
 
-def interest(request):
+def profile(request):
     context = {}
 
-    form = InterestForm(request.POST or None)
+    form = ProfileForm(request.POST or None)
 
     if request.method == 'POST':
         if form.is_valid():
@@ -43,4 +43,17 @@ def interest(request):
             return render(request, 'homepage.html', response)
 
     context['form'] = form
-    return render(request, "forms.html", context)
+    return render(request, "profile_form.html", context)
+
+# def checklist(request):
+
+#     checkbox = InterestForm(request.POST or None)
+
+#     if checkbox.method=="POST":
+#         if (request.POST.get('checkvalue')):
+#             savedata = User.interest()
+#             savedata.interest = request.POST.get('interest')
+#             savedata.save()
+#             return render(request, 'checklist.html')
+#         else:
+#             return render(request, 'checklist.html')
