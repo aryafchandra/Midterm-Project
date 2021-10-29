@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User
-from .forms import ProfileForm
+from .forms import InterestForm, SignupForm, LoginForm
+from django.contrib.auth import login
+from django.contrib import messages
+
 
 currentname = ""    # current user name
 currentinterest = "snapping" # current user interest
@@ -32,7 +35,7 @@ def suggestion(request):
 def profile(request):
     context = {}
 
-    form = ProfileForm(request.POST or None)
+    form = InterestForm(request.POST or None)
 
     if request.method == 'POST':
         if form.is_valid():
@@ -44,6 +47,67 @@ def profile(request):
 
     context['form'] = form
     return render(request, "profile_form.html", context)
+
+def signup_request(request):
+    global currentname
+    form = SignupForm(request.POST or None)
+    if request.method == 'POST':
+        #print(form.is_valid())
+        if form.is_valid():
+
+            form.save()
+            #login(request, user)
+            
+            currentname = form.cleaned_data.get('username')
+
+            return redirect('/profile')
+        #messages.error(request, "Unsuccessful registration. Invalid information.")
+    
+    forms = {'user': form}
+    
+    return render(request, "signup.html", forms)
+
+def login_request(request):
+    global currentname
+    #form = LoginForm(request.POST or None)
+
+    if request.method == 'POST':
+        print(User.objects.get(username='galahad'))
+        #if form.is_valid():
+            
+        username = request.POST.get('Username')
+        print(username,'hai')
+        try:
+            user = User.objects.get(username=username)
+            print(user)
+        except:
+            redirect('/login')
+            print('hai')
+        else:
+            password_input = request.POST.get('password')
+            password = user.password
+            
+
+            #print(form.is_valid())
+                #login(request, user)
+            if password == password_input:
+                messages.success(request, 'anjas bisa')
+                currentname = username
+                #currentname = form.cleaned_data.get('username')
+                print(currentname)
+
+                return redirect('/')
+           
+            #messages.error(request, "Unsuccessful registration. Invalid information.")
+    
+    forms = {}
+    
+    
+    return render(request, "login.html", forms)
+
+    
+
+
 
 # def checklist(request):
 

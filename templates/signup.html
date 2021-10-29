@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="signup.html">
     <title>mutuals-login</title>
 </head>
 {% include "navbar_after.html" %}
 
 <body>
     <div class="container"> 
-        <div> Sign in and let's be friends </div>
+        <div> Sign up and let's be friends </div>
         <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/man-dancing_light-skin-tone_1f57a-1f3fb_1f3fb.png">
       </div>
 
       <form action="" method="POST"> {% csrf_token %}
-        <label for="username">Username</label><br>
-        <input type="text" name="Username"><br><br>
-        <label for="password">password</label><br>
-        <input type="password" name="password"><br><br>
+        {{ user }}
 
         <div>
             <button class="button" type ="submit" value="Submit">
