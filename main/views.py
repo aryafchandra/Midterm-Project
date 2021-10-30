@@ -3,6 +3,7 @@ from .models import User
 from .forms import InterestForm, SignupForm, LoginForm
 from django.contrib.auth import login
 from django.contrib import messages
+import random
 
 def main(request):
     return render(request, 'base.html')
@@ -108,6 +109,13 @@ def login_request(request):
 
     return render(request, "login.html", forms)
 
+def randomize(request):
+    users = list(User.objects.all())
+    users = random.sample(users,1)
+    random_users = random.choice(users)
+    return render(request, 'random.html', {'users': random_users})
+
+#def getProfile(request):
 
 
 
