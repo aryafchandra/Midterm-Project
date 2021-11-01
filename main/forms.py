@@ -9,10 +9,9 @@ class InterestForm(forms.ModelForm):
         fields = ["fullname", "DOB","domicile", "gender", "line", "instagram", "email"]
 
 class SignupForm(forms.ModelForm):
-
     class Meta:
         model = User
-        fields = ["username", "password"]
+        fields = ["email", "username", "password"]
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', max_length=64)

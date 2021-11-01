@@ -6,10 +6,7 @@
     padding-top: 5%;
     align-items: baseline;
   }
-  .container > img{
-    width: 70px;
-    height: auto;
-  }
+
   .container > div{
     font-family: futura, calibri;
     font-size: 55px;
@@ -30,21 +27,12 @@
   margin-bottom: 2%;
   }
 td{
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 100%;
+  padding-right: 100%;
   text-align: center;
   font-family: futura, calibri;
   font-size: 20px;
   text-align: center;
-}
-
-table img{
-  width: 100%;
-  height: auto;
-}
-.table2 img{
-  width: 70%;
-  height: auto;
 }
 .name{
   color: black;

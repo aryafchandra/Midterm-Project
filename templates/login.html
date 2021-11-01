@@ -1,14 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>mutuals-login</title>
 </head>
 {% include "navbar_after.html" %}
+<style class="signup">
 
+    .hover-underline-animation {
+      display: inline-block;
+      position: relative;
+      color: black;
+    }
+    
+    .hover-underline-animation:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: black;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    
+    .hover-underline-animation:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    </style>
 <body>
     <div class="container"> 
         <div> Sign in and let's be friends </div>
@@ -25,7 +51,9 @@
             <button class="button" type ="submit" value="Submit">
             Submit
             </button>
-            </div>
+            
+        </div>
     </form>
+    <br><p class="hover-underline-animation" ><a href="signup"> Haven't created an account? </a></p>
 </body>
 </html>
