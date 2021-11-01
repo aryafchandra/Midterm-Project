@@ -17,3 +17,29 @@ th{
 td{
   background-color: rgba(255,255,255,0.2);
 }
+
+#friendbox {
+  border-radius: 17px;
+  background: #FFFAC9;
+  padding: 15px;
+  width: 50%;
+}
+
+#titlebox {
+  border-radius: 17px;
+  background: #FEF284;
+  padding: 15px;
+  width: 50%;
+  text-align: justify;
+  height: 200px
+}
+
+#buttontheme {
+    border-radius: 10px;
+    background: #FEF284;
+    padding: 10px;
+}
+
+h4::first-line{
+  font-size: 3em
+}

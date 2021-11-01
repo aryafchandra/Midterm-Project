@@ -20,11 +20,11 @@ def suggestion(request):
         for data in users:
             interest = data.get('interest')
             interestlst = interest.split(",")
-            if set(interestlst).intersection(currentinterestlst) != set():
+            if set(interestlst).intersection(currentinterestlst) != set() and data.get('fullname') != currentname:
                 recomendedpeople.append({'fullname':data.get('fullname'), 'DOB':data.get('DOB'),'email':data.get('email'),'instagram':data.get('instagram'),'line':data.get('line'),'interest':interest,'domicile':data.get('domicile'),'gender':data.get('gender')})
 
         #set notes as a collection of object Notes
-        response = {'users': recomendedpeople}
+        response = {'users': recomendedpeople, 'currentname': currentname}
         return render(request, 'suggestion.html', response) #temporary html page
 
     except:
@@ -98,7 +98,6 @@ def login_request(request):
                 currentdomicile = user.domicile
                 currentgender = user.gender
                 #currentname = form.cleaned_data.get('username')
-                print(currentname,currentDOB,currentinterest,currentemail,currentgender)
 
                 return redirect("/suggestion")
 

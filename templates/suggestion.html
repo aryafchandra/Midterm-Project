@@ -12,22 +12,17 @@
 {% include "navbar_after.html" %}
 <body>
   <center>
-
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Interest</th>
-    </tr>
-    <!-- TODO loop from Friend model -->
-    <!-- EXAMPLE SECTION -->
-      {% for user in users %}
-      <tr>
-        <td>{{user.fullname}}</td>
-        <td>{{user.interest}}</td>
-      </tr>
-      {% endfor %}
-    <!-- END SECTION -->
-  </table>
+    <h4 id="titlebox">
+      Hi, {{currentname}}<br>
+      Here are some of our suggestions
+    </h4>
+    <br>
+    {% for user in users %}
+    <br>
+      <h3 id="friendbox">{{user.fullname}} &emsp; &emsp; &emsp; {{user.interest}} &emsp; &emsp; &emsp; <button id="buttontheme">Chat Now!</button></h3>
+    {% endfor %}
+    <br><br><br>
+    <button id="buttontheme">Shuffle Muttuals</button>
 </center>
 </body>
 
