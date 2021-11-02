@@ -24,7 +24,7 @@ def suggestion(request):
                 recomendedpeople.append({'fullname':data.get('fullname'), 'DOB':data.get('DOB'),'email':data.get('email'),'instagram':data.get('instagram'),'line':data.get('line'),'interest':interest,'domicile':data.get('domicile'),'gender':data.get('gender')})
 
         #set notes as a collection of object Notes
-        response = {'users': recomendedpeople, 'currentname': currentname}
+        response = {'users': recomendedpeople, 'currentname': currentname, 'username':currentusername}
         return render(request, 'suggestion.html', response) #temporary html page
 
     except:
@@ -66,7 +66,7 @@ def signup_request(request):
     return render(request, "signup.html", forms)
 
 def login_request(request):
-    global currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender
+    global currentusername, currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender
     #form = LoginForm(request.POST or None)
 
     if request.method == 'POST':
@@ -89,6 +89,7 @@ def login_request(request):
                 #login(request, user)
             if password == password_input:
                 messages.success(request, 'anjas bisa')
+                currentusername = user.username
                 currentname = user.fullname
                 currentDOB = user.DOB
                 currentemail = user.email
