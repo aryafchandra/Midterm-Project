@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import User
-from .forms import InterestForm, SignupForm, LoginForm
+from django.views import View
+from django.db.models import Q
+from .models import User, ThreadModel, MessageModel
+from .forms import InterestForm, SignupForm, LoginForm, ThreadForm
 from django.contrib.auth import login
 from django.contrib import messages
 import random
@@ -114,6 +116,46 @@ def randomize(request):
     users = random.sample(users,1)
     random_users = random.choice(users)
     return render(request, 'random.html', {'users': random_users})
+
+
+def getList(request):
+    threads = ThreadModel.objects.filter(Q(user=request.user) | Q(receiver=request.user))
+
+    context = {
+        'threads' : threads
+    }
+
+    return render(request, 'inbox.html', context)
+
+class CreateThread(View):
+    def get(request):
+        form = ThreadForm()
+        context = {
+            'form' : form
+        }
+        return render(request, 'create_thread.html', context)
+
+    def post(request):
+        form = ThreadForm(request.POST)
+
+        username = request.POST.get('username')
+
+        try:
+            receiver = User.objects.get(username=username)
+            if ThreadModel.objects.filter(user = request.user, receiver=receiver).exists():
+                thread = ThreadModel.objects.filter(user = request.user, receiver=receiver)[0]
+                return redirect('thread', pk=thread.pk)
+            elif ThreadModel.objects.filter(user=receiver, receiver=request.user).exists():
+                thread = ThreadModel.objects.filter(user = receiver, receiver=request.user)[0]
+                return redirect('thread', pk=thread.pk)
+
+            if form.is_valid():
+                thread = ThreadModel(user = request.user, receiver = receiver)
+                thread.save()
+
+                return redirect('thread', pk = thread.pk)
+        except:
+            return redirect('create-thread')
 
 #def getProfile(request):
 

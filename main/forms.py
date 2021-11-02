@@ -16,3 +16,6 @@ class SignupForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', max_length=64)
     password = forms.CharField(label='password', max_length=128)
+
+class ThreadForm(forms.Form):
+    username = forms.CharField(label='', max_length=64)
