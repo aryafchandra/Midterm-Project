@@ -35,8 +35,8 @@ def suggestion(request):
 
 def profile(request):
     context = {}
-
-    form = InterestForm(request.POST or None)
+    instance = User.objects.get(username=currentusername)
+    form = InterestForm(request.POST or None, instance = instance)
 
     if request.method == 'POST':
         if form.is_valid():
@@ -46,10 +46,11 @@ def profile(request):
             response = {'notes': notes}
             return render(request, 'homepage.html', response)
 
-    context['form'] = form
+    context = {'form':form, 'username':currentusername}
     return render(request, "profile_form.html", context)
 
 def signup_request(request):
+    global currentusername
     form = SignupForm(request.POST or None)
     if request.method == 'POST':
         #print(form.is_valid())
@@ -58,7 +59,7 @@ def signup_request(request):
             form.save()
             #login(request, user)
 
-            currentname = form.cleaned_data.get('username')
+            currentusername = form.cleaned_data.get('username')
 
             return redirect('/profile')
         #messages.error(request, "Unsuccessful registration. Invalid information.")
