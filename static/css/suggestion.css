@@ -34,10 +34,26 @@ td{
   height: 200px
 }
 
-#buttontheme {
-    border-radius: 10px;
-    background: #FEF284;
-    padding: 10px;
+.button:hover{
+    background-color:black;
+    color: white;
+}
+.button{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 10px;
+  padding: 10px 45px;
+  text-align: center;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  font-family: futura;
+  border-radius: 10px;
+  background-color:#FFF385;
+  color: black;
+  border: 10px;
+  float: center;
+  box-shadow: 2px 2px 2px rgb(230, 222, 222);
 }
 
 h4::first-line{
