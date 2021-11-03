@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       $(document).ready(function(){
@@ -21,8 +22,44 @@
     </script>
 
 </head>
+<style>
+  label{
+    font-size: 30px;
+  }
+  .button:hover{
+        background-color:black;
+        color: white;
+    }
+    .button{
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      padding: 10px 45px;
+      text-align: center;
+      font-size: 16px;
+      transition-duration: 0.2s;
+      font-family: futura;
+      border-radius: 10px;
+      background-color:#FFF385;
+      color: black;
+      border: 10px;
+      float: center;
+      box-shadow: 2px 2px 2px rgb(230, 222, 222);
+    }
+</style>
+
 {% include "navbar_after.html" %}
 <body>
+  <div class="container-titlebox">
+  <center>
+    <h4>
+      Hi, {{currentname}}<br>
+      Let's complete your dashboard before getting started!
+    </h4>
+    <img class="headimg" src="{% static 'img/header.png'%}" alt="header">
+    <br>
+</center>
+</div>
     <div class="container">
         <div class="mb-6">
           <div class="row">
@@ -30,21 +67,21 @@
               <form action ="" method="POST"> {% csrf_token %}
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Fullname</label>
-                  <input type="text" class="form-control" id="fname" name="fullname" style="width: 335px; height: 50px;">
+                  <input type="text" class="form-control" id="fname" name="fullname" style="width: 350px; height: 50px; border: 3px solid black; border-radius: 15px;">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Birthdate</label>
-                  <input type="text" class="form-control" id="DOB" name="DOB" style="width: 335px; height: 50px;">
+                  <input type="text" class="form-control" id="DOB" name="DOB" style="width: 350px; height: 50px; border: 3px solid black; border-radius: 15px;">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Domicile</label>
-                  <input type="text" class="form-control" id="Domicile" name="domicile" style="width: 335px; height: 50px;" >
+                  <input type="text" class="form-control" id="Domicile" name="domicile" style="width: 350px; height: 50px; border: 3px solid black; border-radius: 15px;">
                 </div>
             </div>
             <div class="col-6">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Gender</label>
-                <select id="cars" name="gender"  style="width: 335px; height: 50px;">
+                <select id="cars" name="gender"  style="width: 300px; height: 50px; border: 3px solid black; border-radius: 15px; font-size: 25px;">
                   <option value="volvo">Male</option>
                   <option value="saab">Female</option>
                   <option value="opel">Other</option>
@@ -52,65 +89,70 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" name="email" style="width: 335px; height: 50px;">
+                <input type="text" class="form-control" id="email" name="email" style="width: 300px; height: 50px; border: 3px solid black; border-radius: 15px;">
               </div>
               <div class="mb-3">
                 <div class="row">
                   <div class="col-6">
                     <label for="exampleInputPassword1" class="form-label">Line ID</label>
-                    <input type="text" class="form-control" id="line" name="line" style="width: 165px; height: 50px;">
+                    <input type="text" class="form-control" id="line" name="line" style="width: 180px; height: 50px; border: 3px solid black; border-radius: 15px;">
                   </div>
-                  <div class="col-6">
+                  <div class="col-4">
                     <label for="exampleInputPassword1" class="form-label">Instagram</label>
-                    <input type="text" class="form-control" id="ig"  name="instagram" style="width: 165px; height: 50px;">
+                    <input type="text" class="form-control" id="ig"  name="instagram" style="width: 180px; height: 50px; border: 3px solid black; border-radius: 15px;">
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-4">
-              <input type="checkbox" value="Fantasy" class="combine"/> Fantasy
-              <input type="checkbox" value="Romance" class="combine"/> Romance
-              <input type="checkbox" value="Thrillers" class="combine"/> Thrillers
-              <input type="checkbox" value="Mystery" class="combine"/> Mystery
-              <input type="checkbox" value="Comedy" class="combine"/> Comedy
-              <input type="checkbox" value="Documentary" class="combine"/> Documentary
-              <input type="checkbox" value="Comic" class="combine"/> Comic
-              <input type="checkbox" value="Fashion" class="combine"/> Fashion
+            <div class="col-3" style="font-size: 25px;">
+              <br><input type="checkbox" value="Fantasy" class="combine"/> Fantasy
+              <br><input type="checkbox" value="Romance" class="combine"/> Romance
+              <br><input type="checkbox" value="Thrillers" class="combine"/> Thrillers
+              <br><input type="checkbox" value="Mystery" class="combine"/> Mystery
+              <br><input type="checkbox" value="Comedy" class="combine"/> Comedy
+              <br><input type="checkbox" value="Documentary" class="combine"/> Documentary
+              <br><input type="checkbox" value="Comic" class="combine"/> Comic
+              <br><input type="checkbox" value="Fashion" class="combine"/> Fashion
             </div>
-            <div class="col-4">
-              <input type="checkbox" value="Soccer" class="combine"/> Soccer
-              <input type="checkbox" value="Basketball" class="combine"/> Basketball
-              <input type="checkbox" value="Swimming" class="combine"/> Swimming
-              <input type="checkbox" value="Gaming" class="combine"/> Gaming
-              <input type="checkbox" value="Reading" class="combine"/> Reading
-              <input type="checkbox" value="Cooking" class="combine"/> Cooking
-              <input type="checkbox" value="Design" class="combine"/> Design
-              <input type="checkbox" value="Music" class="combine"/> Music
+            <div class="col-3" style="font-size: 25px;">
+              <br><input type="checkbox" value="Soccer" class="combine"/> Soccer
+              <br><input type="checkbox" value="Basketball" class="combine"/> Basketball
+              <br><input type="checkbox" value="Swimming" class="combine"/> Swimming
+              <br><input type="checkbox" value="Gaming" class="combine"/> Gaming
+              <br><input type="checkbox" value="Reading" class="combine"/> Reading
+              <br><input type="checkbox" value="Cooking" class="combine"/> Cooking
+              <br><input type="checkbox" value="Design" class="combine"/> Design
+              <br><input type="checkbox" value="Music" class="combine"/> Music
             </div>
-            <div class="col-4">
-              <input type="checkbox" value="Food" class="combine"/> Food
-              <input type="checkbox" value="Drinks" class="combine"/> Drinks
-              <input type="checkbox" value="School" class="combine"/> School
-              <input type="checkbox" value="Teaching" class="combine"/> Teaching
-              <input type="checkbox" value="Movies" class="combine"/> Movies
-              <input type="checkbox" value="K-Dramas" class="combine"/> K-Dramas
-              <input type="checkbox" value="KPOP" class="combine"/> KPOP
-              <input type="checkbox" value="Technology" class="combine"/> Technology
+            <div class="col-3" style="font-size: 25px;">
+              <br><input type="checkbox" value="Food" class="combine"/> Food
+              <br><input type="checkbox" value="Drinks" class="combine"/> Drinks
+              <br><input type="checkbox" value="School" class="combine"/> School
+              <br><input type="checkbox" value="Teaching" class="combine"/> Teaching
+              <br><input type="checkbox" value="Movies" class="combine"/> Movies
+              <br><input type="checkbox" value="K-Dramas" class="combine"/> K-Dramas
+              <br><input type="checkbox" value="KPOP" class="combine"/> KPOP
+              <br><input type="checkbox" value="Technology" class="combine"/> Technology
             </div>
-            <div class="col-4">
-              <input type="checkbox" value="Data Science" class="combine"/> Data Science
-              <input type="checkbox" value="Cyber Security" class="combine"/> Cyber Security
-              <input type="checkbox" value="Software Engineer" class="combine"/> Software Engineer
-              <input type="checkbox" value="Product Management" class="combine"/> Product Management
-              <input type="checkbox" value="UI/UX" class="combine"/> UI/UX
-              <input type="checkbox" value="Research" class="combine"/> Research
-              <input type="checkbox" value="Dancing" class="combine"/> Dancing
-              <input type="checkbox" value="Singing" class="combine"/> Singing
+            <div class="col-3" style="font-size: 25px;">
+              <br><input type="checkbox" value="Data Science" class="combine"/> Painting
+              <br><input type="checkbox" value="Cyber Security" class="combine"/> Concerts
+              <br><input type="checkbox" value="Software Engineer" class="combine"/> Piano
+              <br><input type="checkbox" value="Product Management" class="combine"/> Guitar
+              <br><input type="checkbox" value="UI/UX" class="combine"/> Makeup
+              <br><input type="checkbox" value="Research" class="combine"/> Research
+              <br><input type="checkbox" value="Dancing" class="combine"/> Dancing
+              <br><input type="checkbox" value="Singing" class="combine"/> Singing
             </div>
             <input type="hidden" name="interest" id="interestrslt"/>
-          <button type="submit" class="btn btn-success" value="Submit">Submit</button>
+            <br>
+            <br>
+            <button class="button" type ="submit" value="Submit" style="width: 150px; height: 50px; margin-bottom: 0%;">
+            Submit
+              </button>
+
         </form>
 
         </div>
