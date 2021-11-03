@@ -12,14 +12,19 @@
 {% include "navbar_after.html" %}
 <body>
   <center>
-    <h4 id="titlebox">
-      Hi, {{currentname}}<br>
-      Here are some of our suggestions
-    </h4>
+    <div class="container-titlebox" style="background-color: #FFF385;">
+    <div class="media">
+      <img class="mr-3" src="{% static 'img/header.png'%}" alt="Generic placeholder image" style="float:right; background-color: #FFF385; height: 225px" >
+      <div class="media-body" style="background-color: #FFF385; font-size: 30px;">
+        <h5 class="mt-0" style="background-color: #FFF385; font-size: 100px;">Hi, {{currentname}} </h5>
+        Here are some of our suggestions
+      </div>
+    </div>
+  </div>
     <br>
     {% for user in users %}
     <br>
-      <h3 id="friendbox">{{user.fullname}} &emsp; &emsp; &emsp; {{user.interest}} &emsp; &emsp; &emsp; <button class="button">Chat Now!</button></h3>
+      <h3 id="friendbox">{{user.fullname}} &emsp; &emsp; &emsp;{{user.interest}} &emsp; &emsp; &emsp;<button class="button">Chat Now!</button></h3>
     {% endfor %}
     <br><br><br>
     <button class="button">Shuffle Muttuals</button>

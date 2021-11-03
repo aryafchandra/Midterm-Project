@@ -22,16 +22,23 @@ td{
   border-radius: 17px;
   background: #FFFAC9;
   padding: 15px;
-  width: 50%;
+  width: 80%;
+  align-items: center;
 }
 
-#titlebox {
+.container-titlebox{
   border-radius: 17px;
-  background: #FEF284;
+  background-color: #FEF284;
   padding: 15px;
-  width: 50%;
+  width: 80%;
   text-align: justify;
-  height: 200px
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-titlebox img{
+  max-width: 25%;
+  max-height: auto;
 }
 
 .button:hover{

@@ -71,10 +71,16 @@ def signup_request(request):
 def login_request(request):
     global currentusername, currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender
     #form = LoginForm(request.POST or None)
+    currentname = None
+    currentDOB = None
+    currentemail = None
+    currentig = None
+    currentline = None
+    currentinterest = None
+    currentdomicile = None
+    currentgender = None
 
     if request.method == 'POST':
-
-
         username = request.POST.get('Username')
         print(username,'hai')
         try:
