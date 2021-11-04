@@ -63,7 +63,7 @@
       margin-left: auto;
       margin-right: auto;
       margin-top: 10px;
-      padding: 10px 45px;
+      padding: 30px 45px;
       text-align: center;
       font-size: 16px;
       transition-duration: 0.2s;
@@ -72,7 +72,6 @@
       background-color:#FFF385;
       color: black;
       border: 10px;
-      float: center;
       box-shadow: 2px 2px 2px rgb(230, 222, 222);
     }
 </style>
@@ -89,28 +88,29 @@
   </div>
 </div>
 
-    <div class="container" style="  padding-top: 0;">
+    <div class="container" style="  padding-top: 0; justify-content: left;">
         <div class="mb-6">
           <div class="row">
-            <div class="col-6" >
+            <div class="col-6" style="padding-left: 100px;">
               <form action ="" method="POST"> {% csrf_token %}
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Fullname</label>
-                  <input type="text" class="form-control" id="fname" name="fullname" style="width: 350px; height: 50px; border: 3px solid black; border-radius: 15px;">
+                  <input type="text" class="form-control" id="fname" name="fullname" style="width: 500px; height: 60px; border: 3px solid black; border-radius: 15px;">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Birthdate</label>
-                  <input type="text" class="form-control" id="DOB" name="DOB" style="width: 350px; height: 50px; border: 3px solid black; border-radius: 15px;">
+                  <input type="date" class="form-control" id="DOB" name="DOB" style="width: 500px; height: 60px; border: 3px solid black; border-radius: 15px;">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Domicile</label>
-                  <input type="text" class="form-control" id="Domicile" name="domicile" style="width: 350px; height: 50px; border: 3px solid black; border-radius: 15px;">
+                  <input type="text" class="form-control" id="Domicile" name="domicile" style="width: 500px; height: 60px; border: 3px solid black; border-radius: 15px;">
                 </div>
             </div>
-            <div class="col-6" >
+            <br>
+            <div class="col-6" style="padding-right: 250px;">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Gender</label>
-                <select id="cars" name="gender"  style="width: 300px; height: 50px; border: 3px solid black; border-radius: 15px; font-size: 25px;">
+                <select id="cars" name="gender"  style="width: 300px; height: 60px; border: 3px solid black; border-radius: 15px; font-size: 25px;">
                   <option value="volvo">Male</option>
                   <option value="saab">Female</option>
                   <option value="opel">Other</option>
@@ -118,17 +118,17 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" name="email" style="width: 300px; height: 50px; border: 3px solid black; border-radius: 15px;">
+                <input type="text" class="form-control" id="email" name="email" style="width: 500px; height: 60px; border: 3px solid black; border-radius: 15px;">
               </div>
-              <div class="mb-3">
-                <div class="row">
-                  <div class="col-6">
+              <div class="mb-5">
+                <div class="row" >
+                  <div class="col-8">
                     <label for="exampleInputPassword1" class="form-label">Line ID</label>
-                    <input type="text" class="form-control" id="line" name="line" style="width: 180px; height: 50px; border: 3px solid black; border-radius: 15px;">
+                    <input type="text" class="form-control" id="line" name="line" style="width: 250px; height: 60px; border: 3px solid black; border-radius: 15px;">
                   </div>
                   <div class="col-4">
                     <label for="exampleInputPassword1" class="form-label">Instagram</label>
-                    <input type="text" class="form-control" id="ig"  name="instagram" style="width: 180px; height: 50px; border: 3px solid black; border-radius: 15px;">
+                    <input type="text" class="form-control" id="ig"  name="instagram" style="width: 250px; height: 60px; border: 3px solid black; border-radius: 15px;">
                   </div>
                 </div>
               </div>
@@ -180,13 +180,15 @@
               <br><input type="checkbox" value="Singing" class="combine"/> Singing
             </div>
           </div>
+          <div>
+            </div>
             <input type="hidden" name="interest" id="interestrslt"/>
-            <br>
-            <br>
-            <button class="button" type ="submit" value="Submit" style="width: 150px; height: 50px; margin-bottom: 0%;">
+          </div>
+            <center>
+            <button class="button" type ="submit" value="Submit" style="width: 150px; height: 50px; margin-bottom: 10%; font-size: 20px">
             Submit
               </button>
-
+            </center>
         </form>
 
         </div>
