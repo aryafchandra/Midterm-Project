@@ -8,17 +8,17 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
-
+{% include "navbar_after.html" %}
 <header>
-  <img class="logo" src="https://i.imgur.com/6ccUWSG.png" alt="logo">
+  
   <nav>
     <ul class="nav_links">
-      
+      <li><a href= "profile/{{users}}">{{users}}</a></li>
+      <li><a href="randomize">Randomize again!</a></li>
     </ul>
   </nav>
 </header>
 
 <body>
-    <p>{{users}}</p>
 </body>
 </html>
