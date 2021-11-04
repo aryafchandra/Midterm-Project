@@ -77,7 +77,6 @@ ul li a:hover::after {
 
 .dropdown {
   float: left;
-  overflow: hidden;
 }
 
 /* Style the dropdown button to fit inside the topnav */
@@ -97,7 +96,7 @@ ul li a:hover::after {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 999;
 }
 
 /* Style the links inside the dropdown */
@@ -129,7 +128,7 @@ ul li a:hover::after {
        <div class="dropdown">
          <button class="dropbtn">{{ username }}<i></i></button>
            <div class="dropdown-content">
-             <a href="#">My Profile</a>
+             <a href="edit-profile">My Profile</a>
              <a href="login">Log Out</a>
            </div>
         </div>

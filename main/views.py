@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.db.models import Q
 from .models import User, ThreadModel, MessageModel
-from .forms import InterestForm, SignupForm, LoginForm, ThreadForm
+from .forms import InterestForm, SignupForm, LoginForm, ThreadForm, EditForm
 from django.contrib.auth import login
 from django.contrib import messages
 import random
@@ -44,13 +44,13 @@ def profile(request):
             form.save()
             notes = User.objects.all()
             response = {'notes': notes}
-            return render(request, 'suggestion.html', response)
+            return redirect('/suggestion')
 
-    context = {'form':form, 'username':currentusername}
+    context = {'form':form, 'username':currentusername, 'email':currentemail}
     return render(request, "profile_form.html", context)
 
 def signup_request(request):
-    global currentusername
+    global currentusername, currentemail
     form = SignupForm(request.POST or None)
     if request.method == 'POST':
         #print(form.is_valid())
@@ -60,6 +60,7 @@ def signup_request(request):
             #login(request, user)
 
             currentusername = form.cleaned_data.get('username')
+            currentemail = form.cleaned_data.get('email')
 
             return redirect('/profile')
         #messages.error(request, "Unsuccessful registration. Invalid information.")
@@ -69,7 +70,7 @@ def signup_request(request):
     return render(request, "signup.html", forms)
 
 def login_request(request):
-    global currentusername, currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender
+    global currentusername, currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender,currentpassword
     #form = LoginForm(request.POST or None)
     currentname = None
     currentDOB = None
@@ -79,7 +80,7 @@ def login_request(request):
     currentinterest = None
     currentdomicile = None
     currentgender = None
-
+    currentpassword = None
     if request.method == 'POST':
         username = request.POST.get('Username')
         print(username,'welcome!')
@@ -107,6 +108,7 @@ def login_request(request):
                 currentinterest = user.interest
                 currentdomicile = user.domicile
                 currentgender = user.gender
+                currentpassword = user.password
                 
                 #if the user haven't filled out the form
                 if currentname == '' or currentig == '' or currentline == '' or currentinterest == '' or currentdomicile == '' or currentgender == '':
@@ -167,6 +169,34 @@ class CreateThread(View):
                 return redirect('thread', pk = thread.pk)
         except:
             return redirect('create-thread')
+
+def profile_edit(request):
+    global currentusername, currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender, currentpassword
+    context = {}
+    formerusername = currentusername
+    user = User.objects.get(username=currentusername)
+    form = EditForm(request.POST or None, instance = user)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            # save the form data to model
+            form.save()
+            currentusername = user.username
+            currentname = user.fullname
+            currentemail = user.email
+            currentig = user.instagram
+            currentline = user.line
+            currentinterest = user.interest
+            currentdomicile = user.domicile
+            currentpassword = user.password
+            if formerusername != currentusername:
+                User.objects.get(username=formerusername).delete()
+            return redirect("/suggestion")
+
+    context = {'form':form, 'username':currentusername, 'name':currentname, 'DOB':currentDOB, 'email':currentemail,
+               'instagram':currentig, 'line':currentline, 'interest':currentinterest, 'domicile':currentdomicile,
+               'password':currentpassword,'gender':currentgender}
+    return render(request, "profile_edit.html", context)
 
 #def getProfile(request):
 
