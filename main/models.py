@@ -10,10 +10,10 @@ class User(models.Model):
     email = models.EmailField(default='')
     instagram = models.CharField(max_length=30,default='')
     line = models.CharField(max_length=32,default='')
-    interest = models.CharField(max_length=200,default='')
+    interest = models.CharField(max_length=1000,default='')
     domicile = models.CharField(max_length=30,default='')
     gender = models.CharField(max_length=10,default='')
-    
+
     def __str__(self):
         return self.username
 
@@ -28,4 +28,3 @@ class MessageModel(models.Model):
     body = models.CharField(max_length=1000)
     date = models.DateTimeField(default=timezone.now())
     is_read = models.BooleanField(default=False)
-    
