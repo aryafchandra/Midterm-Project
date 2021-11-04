@@ -44,7 +44,7 @@ def profile(request):
             form.save()
             notes = User.objects.all()
             response = {'notes': notes}
-            return render(request, 'homepage.html', response)
+            return render(request, 'suggestion.html', response)
 
     context = {'form':form, 'username':currentusername}
     return render(request, "profile_form.html", context)
@@ -82,13 +82,13 @@ def login_request(request):
 
     if request.method == 'POST':
         username = request.POST.get('Username')
-        print(username,'hai')
+        print(username,'welcome!')
         try:
             user = User.objects.get(username=username)
             print(user)
         except:
             redirect('/login')
-            print('hai')
+            print('welcome!')
         else:
             password_input = request.POST.get('password')
             password = user.password
@@ -97,7 +97,7 @@ def login_request(request):
             #print(form.is_valid())
                 #login(request, user)
             if password == password_input:
-                messages.success(request, 'anjas bisa')
+                messages.success(request, 'sucessful!')
                 currentusername = user.username
                 currentname = user.fullname
                 currentDOB = user.DOB
@@ -107,6 +107,10 @@ def login_request(request):
                 currentinterest = user.interest
                 currentdomicile = user.domicile
                 currentgender = user.gender
+                
+                #if the user haven't filled out the form
+                if currentname == '' or currentig == '' or currentline == '' or currentinterest == '' or currentdomicile == '' or currentgender == '':
+                    return redirect("/profile")
                 #currentname = form.cleaned_data.get('username')
 
                 return redirect("/suggestion")
