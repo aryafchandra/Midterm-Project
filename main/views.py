@@ -21,8 +21,15 @@ def suggestion(request):
         users =  User.objects.all().values() # TODO Implement this
         for data in users:
             interest = data.get('interest')
-            interestlst = interest.split(",")
-            if set(interestlst).intersection(currentinterestlst) != set() and data.get('fullname') != currentname:
+            interestlst = interest.split(",")[0:-1]
+            intersection = set(interestlst).intersection(currentinterestlst)
+
+            if intersection != set() and data.get('fullname') != currentname:
+                intersection = list(intersection)
+                if len(intersection) > 5:
+                    intersection = intersection[0:5]
+                    intersection.append(" and more...")
+                interest = "Both of you like " + ','.join(intersection)
                 recomendedpeople.append({'fullname':data.get('fullname'), 'DOB':data.get('DOB'),'email':data.get('email'),'instagram':data.get('instagram'),'line':data.get('line'),'interest':interest,'domicile':data.get('domicile'),'gender':data.get('gender')})
 
         #set notes as a collection of object Notes
@@ -44,7 +51,7 @@ def profile(request):
             form.save()
             notes = User.objects.all()
             response = {'notes': notes}
-            return render(request, 'suggestion.html', response)
+            return render(request, 'login.html', response)
 
     context = {'form':form, 'username':currentusername}
     return render(request, "profile_form.html", context)
@@ -107,7 +114,7 @@ def login_request(request):
                 currentinterest = user.interest
                 currentdomicile = user.domicile
                 currentgender = user.gender
-                
+
                 #if the user haven't filled out the form
                 if currentname == '' or currentig == '' or currentline == '' or currentinterest == '' or currentdomicile == '' or currentgender == '':
                     return redirect("/profile")
