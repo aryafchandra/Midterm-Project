@@ -21,8 +21,15 @@ def suggestion(request):
         users =  User.objects.all().values() # TODO Implement this
         for data in users:
             interest = data.get('interest')
-            interestlst = interest.split(",")
-            if set(interestlst).intersection(currentinterestlst) != set() and data.get('fullname') != currentname:
+            interestlst = interest.split(",")[0:-1]
+            intersection = set(interestlst).intersection(currentinterestlst)
+
+            if intersection != set() and data.get('fullname') != currentname:
+                intersection = list(intersection)
+                if len(intersection) > 5:
+                    intersection = intersection[0:5]
+                    intersection.append(" and more...")
+                interest = "Both of you like " + ','.join(intersection)
                 recomendedpeople.append({'fullname':data.get('fullname'), 'DOB':data.get('DOB'),'email':data.get('email'),'instagram':data.get('instagram'),'line':data.get('line'),'interest':interest,'domicile':data.get('domicile'),'gender':data.get('gender')})
 
         #set notes as a collection of object Notes
@@ -70,8 +77,8 @@ def signup_request(request):
     return render(request, "signup.html", forms)
 
 def login_request(request):
-    global currentusername, currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender,currentpassword
-    #form = LoginForm(request.POST or None)
+    global currentusername, currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender, currentpassword
+    # form = LoginForm(request.POST or None)
     currentname = None
     currentDOB = None
     currentemail = None
@@ -83,7 +90,7 @@ def login_request(request):
     currentpassword = None
     if request.method == 'POST':
         username = request.POST.get('Username')
-        print(username,'welcome!')
+        print(username, 'welcome!')
         try:
             user = User.objects.get(username=username)
             print(user)
@@ -94,9 +101,8 @@ def login_request(request):
             password_input = request.POST.get('password')
             password = user.password
 
-
-            #print(form.is_valid())
-                #login(request, user)
+            # print(form.is_valid())
+            # login(request, user)
             if password == password_input:
                 messages.success(request, 'sucessful!')
                 currentusername = user.username
@@ -109,20 +115,20 @@ def login_request(request):
                 currentdomicile = user.domicile
                 currentgender = user.gender
                 currentpassword = user.password
-                
-                #if the user haven't filled out the form
+
+                # if the user haven't filled out the form
                 if currentname == '' or currentig == '' or currentline == '' or currentinterest == '' or currentdomicile == '' or currentgender == '':
                     return redirect("/profile")
-                #currentname = form.cleaned_data.get('username')
+                # currentname = form.cleaned_data.get('username')
 
                 return redirect("/suggestion")
 
-            #messages.error(request, "Unsuccessful registration. Invalid information.")
+            # messages.error(request, "Unsuccessful registration. Invalid information.")
 
     forms = {}
 
-
     return render(request, "login.html", forms)
+
 
 def randomize(request):
     users = list(User.objects.all())
@@ -175,7 +181,7 @@ def profile_edit(request):
     context = {}
     formerusername = currentusername
     user = User.objects.get(username=currentusername)
-    form = EditForm(request.POST or None, instance = user)
+    form = EditForm(request.POST or None, instance=user)
 
     if request.method == 'POST':
         if form.is_valid():
@@ -193,9 +199,11 @@ def profile_edit(request):
                 User.objects.get(username=formerusername).delete()
             return redirect("/suggestion")
 
-    context = {'form':form, 'username':currentusername, 'name':currentname, 'DOB':currentDOB, 'email':currentemail,
-               'instagram':currentig, 'line':currentline, 'interest':currentinterest, 'domicile':currentdomicile,
-               'password':currentpassword,'gender':currentgender}
+    context = {'form': form, 'username': currentusername, 'name': currentname, 'DOB': currentDOB,
+               'email': currentemail,
+               'instagram': currentig, 'line': currentline, 'interest': currentinterest,
+               'domicile': currentdomicile,
+               'password': currentpassword, 'gender': currentgender}
     return render(request, "profile_edit.html", context)
 
 #def getProfile(request):
