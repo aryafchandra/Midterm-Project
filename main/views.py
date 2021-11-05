@@ -5,6 +5,8 @@ from .models import User, ThreadModel, MessageModel
 from .forms import InterestForm, SignupForm, LoginForm, ThreadForm, EditForm
 from django.contrib.auth import login
 from django.contrib import messages
+from django.http.response import HttpResponse
+from django.core import serializers
 import random
 
 def main(request):
@@ -205,6 +207,10 @@ def profile_edit(request):
                'domicile': currentdomicile,
                'password': currentpassword, 'gender': currentgender}
     return render(request, "profile_edit.html", context)
+
+def json(request):
+    data = serializers.serialize('json', User.objects.all())
+    return HttpResponse(data, content_type="application/json")
 
 #def getProfile(request):
 
