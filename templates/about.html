@@ -5,11 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/about.css' %}">
     <title>mutuals-about</title>
 </head>
-{% include "navbar_before.html" %}
 
+{% include "navbar_before.html" %}
+<style>
+      .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 5%;
+    align-items: baseline;
+  }
+
+  .container > div{
+    font-family: futura, calibri;
+    font-size: 55px;
+    padding-right: 20px;
+    font-weight: 500;
+  }
+  .desc{
+      font-family: futura, calibri;
+      font-size: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+  .image{
+    width: 50%;
+    height: auto;
+    padding-top: 20px;
+    margin-bottom: 10%;
+  }
+</style>
 <body style="text-align: center;">
     <div class="container">
         <div> Behind the scenes </div>
@@ -19,33 +46,10 @@
     <p class="desc"> Let's meet the people behind the project </p>
     </div>
 
-    <table class="table1">
-      <tr>
-          <td> <img src="{% static 'members/joel.png'%}"> </td>
-          <td> <img src="{% static 'members/ryan.png'%}"> </td>
-          <td> <img src="{% static 'members/arya.png'%}"> </td>
-          <td> <img src="{% static 'members/aldi.png'%}"> </td>
-
-      </tr>
-      <tr>
-          <td class="name"> Joel </td>
-          <td class="name"> Ryan </td>
-          <td class="name"> Arya </td>
-          <td class="name"> Aldi </td>
-      </tr>
-    </table>
-    <table class="table2">
-        <tr>
-            <td> <img src="{% static 'members/kevin.png'%}"> </td>
-            <td> <img src="{% static 'members/audi.png'%}"> </td>
-            <td> <img src="{% static 'members/felix.png'%}"> </td>
-        </tr>
-        <tr >
-            <td class="name"> Kevin </td>
-            <td class="name"> Audi </td>
-            <td class="name"> Felix </td>
-        </tr>
-    </table>
-
+    <img class="image" src="{% static 'img/members.png' %}" alt="members"/> 
 </body>
+<footer>
+    {% include "footer.html" %}
+  </footer>
+  
 </html>
