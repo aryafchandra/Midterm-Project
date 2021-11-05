@@ -5,7 +5,7 @@ from .models import User, ThreadModel, MessageModel
 from .forms import InterestForm, SignupForm, LoginForm, ThreadForm, EditForm
 from django.contrib.auth import login
 from django.contrib import messages
-from django.http.response import HttpResponse
+from django.http.response import Http404, HttpResponse
 from django.core import serializers
 import random
 
@@ -212,7 +212,13 @@ def json(request):
     data = serializers.serialize('json', User.objects.all())
     return HttpResponse(data, content_type="application/json")
 
-#def getProfile(request):
+def getProfile(request, username):
+    try:
+      mutual = User.objects.get(pk=username)
+      response = {'mutual' : mutual}
+      return render(request, 'viewprofile.html', response)
+    except:
+        return Http404("user not found")
 
 
 

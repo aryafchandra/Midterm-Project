@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import json, main, about, profile, suggestion, signup_request, login_request, randomize, getList, CreateThread, profile_edit, json
+from .views import getProfile, json, main, about, profile, suggestion, signup_request, login_request, randomize, getList, CreateThread, profile_edit, json, getProfile
 
 app_name = 'main'
 
@@ -14,5 +14,6 @@ urlpatterns = [
     path('inbox', getList, name = 'inbox'),
     path('inbox/create-thread', CreateThread.as_view(), name='create-thread'),
     path('edit-profile',profile_edit, name='profile'),
-    path('json', json)
+    path('json', json),
+    path('profile/<username>', getProfile, name='getProfile')
 ]
