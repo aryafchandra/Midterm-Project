@@ -136,7 +136,7 @@ def randomize(request):
     users = list(User.objects.all())
     users = random.sample(users,1)
     random_users = random.choice(users)
-    return render(request, 'random.html', {'users': random_users})
+    return render(request, 'viewprofile.html', {'mutual': random_users})
 
 
 def getList(request):
