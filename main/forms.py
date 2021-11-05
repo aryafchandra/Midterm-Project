@@ -8,6 +8,11 @@ class InterestForm(forms.ModelForm):
         model = User
         fields = ["fullname", "DOB","domicile", "gender", "line", "instagram", "email", "interest"]
 
+class EditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["username","password", "fullname", "domicile", "line", "instagram", "email", "interest"]
+
 class SignupForm(forms.ModelForm):
     class Meta:
         model = User
