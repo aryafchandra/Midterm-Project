@@ -136,7 +136,7 @@ def randomize(request):
     users = list(User.objects.all())
     users = random.sample(users,1)
     random_users = random.choice(users)
-    return render(request, 'viewprofile.html', {'mutual': random_users})
+    return render(request, 'viewprofile.html', {'user': random_users})
 
 
 def getList(request):
@@ -212,13 +212,6 @@ def json(request):
     data = serializers.serialize('json', User.objects.all())
     return HttpResponse(data, content_type="application/json")
 
-def getProfile(request, username):
-    try:
-      mutual = User.objects.get(pk=username)
-      response = {'mutual' : mutual}
-      return render(request, 'viewprofile.html', response)
-    except:
-        return Http404("user not found")
 
 
 
