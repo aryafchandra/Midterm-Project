@@ -49,6 +49,7 @@ td{
   color: black;
   float: center;
   box-shadow: 2px 2px 2px rgb(230, 222, 222);
+  padding-bottom: 10px;
 }
 
 h4::first-line{
