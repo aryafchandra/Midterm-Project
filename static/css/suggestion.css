@@ -28,7 +28,7 @@ td{
   height: 250px;
   margin-left: auto;
   margin-right: auto;
-  font-family: futura;
+  font-family: 'Rubik', sans-serif, futura;
 }
 .container-titlebox img{
   max-width: 25%;
@@ -48,7 +48,7 @@ td{
   text-align: center;
   font-size: 16px;
   transition-duration: 0.2s;
-  font-family: futura;
+  font-family: 'Rubik', sans-serif, futura;
   border-radius: 10px;
   background-color:#FFF385;
   color: black;

@@ -15,6 +15,26 @@ def main(request):
 def about(request):
     return render(request, 'about.html')
 
+def mainafter(request):
+    try:
+        if currentusername != None:
+            response = {'username':currentusername}
+            return render(request, 'baseafter.html', response)
+        else:
+            return redirect('/login')
+    except:
+        return redirect('/login')
+
+def aboutafter(request):
+    try:
+        if currentusername != None:
+            response = {'username':currentusername}
+            return render(request, 'aboutafter.html', response)
+        else:
+            return redirect('/login')
+
+    except:
+        return redirect('/login')
 
 def suggestion(request):
     try:
@@ -81,6 +101,7 @@ def signup_request(request):
 def login_request(request):
     global currentusername, currentname, currentDOB, currentemail, currentig, currentline, currentinterest, currentdomicile, currentgender, currentpassword
     # form = LoginForm(request.POST or None)
+    currentusername = None
     currentname = None
     currentDOB = None
     currentemail = None
@@ -133,10 +154,16 @@ def login_request(request):
 
 
 def randomize(request):
-    users = list(User.objects.all())
-    users = random.sample(users,1)
-    random_users = random.choice(users)
-    return render(request, 'viewprofile.html', {'user': random_users})
+    try:
+        if currentusername != None:
+            users = list(User.objects.all())
+            users = random.sample(users,1)
+            random_users = random.choice(users)
+            return render(request, 'viewprofile.html', {'user': random_users, 'username':currentusername})
+        else:
+            return redirect('/login')
+    except:
+        return redirect('/login')
 
 
 def getList(request):
@@ -211,20 +238,3 @@ def profile_edit(request):
 def json(request):
     data = serializers.serialize('json', User.objects.all())
     return HttpResponse(data, content_type="application/json")
-
-
-
-
-
-# def checklist(request):
-
-#     checkbox = InterestForm(request.POST or None)
-
-#     if checkbox.method=="POST":
-#         if (request.POST.get('checkvalue')):
-#             savedata = User.interest()
-#             savedata.interest = request.POST.get('interest')
-#             savedata.save()
-#             return render(request, 'checklist.html')
-#         else:
-#             return render(request, 'checklist.html')

@@ -13,14 +13,14 @@ body{
     height: auto;
   }
   .container > div{
-    font-family: futura;
+    font-family: 'Rubik', sans-serif, futura;
     font-size: 55px;
     padding-right: 20px;
     font-weight: 500;
     padding-bottom: 3%;
   }
   .desc{
-      font-family: futura;
+    font-family: 'Rubik', sans-serif, futura;
       font-size: 20px;
       padding-top: 20px;
       padding-bottom: 20px;
@@ -43,7 +43,7 @@ body{
       text-align: center;
       font-size: 16px;
       transition-duration: 0.2s;
-      font-family: futura;
+      font-family: 'Rubik', sans-serif, futura;
       border-radius: 10px;
       background-color:#FFF385;
       color: black;
@@ -57,13 +57,13 @@ body{
       display: inline-block;
       border: 3px solid black;
       border-radius: 15px;
-      font-family: futura;
+      font-family: 'Rubik', sans-serif, futura;
       font-size: 20px;
       text-align: center;
       
     }
     label{
-      font-family: futura;
+      font-family: 'Rubik', sans-serif, futura;
       font-size: 20px;
       text-align: center;
     }

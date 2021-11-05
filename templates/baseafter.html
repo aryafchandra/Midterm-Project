@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+{% include "navbar_after.html" %}
+
+
+<body style="text-align: center;">
+  <div class="container">
+    <div> Welcome to Mutuals </div>
+    <img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Waving_Hand_Sign_Emoji_large.png?v=1571606038">
+  </div>
+
+  <p class="description"> Mutuals is a web application that focuses in connecting end user to a <br>
+    diverse group of people sharing the same interests. You may message them <br>
+    through the message box feature, or have fun with our shuffle button <br>
+    and communicate with randomly selected users based on your shared interests.
+  </p>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+</body>
+<footer>
+  {% include "footer.html" %}
+</footer>
+
+
+</html>

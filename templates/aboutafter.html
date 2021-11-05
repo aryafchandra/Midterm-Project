@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mutuals-about</title>
+</head>
+
+{% include "navbar_after.html" %}
+<style>
+      .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 5%;
+    align-items: baseline;
+  }
+
+  .container > div{
+    font-family: futura, calibri;
+    font-size: 55px;
+    padding-right: 20px;
+    font-weight: 500;
+  }
+  .desc{
+      font-family: futura, calibri;
+      font-size: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+  .image{
+    width: 50%;
+    height: auto;
+    padding-top: 20px;
+    margin-bottom: 10%;
+  }
+</style>
+<body style="text-align: center;">
+    <div class="container">
+        <div> Behind the scenes </div>
+        <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/285/door_1f6aa.png">
+
+    </div>
+    <p class="desc"> Let's meet the people behind the project </p>
+    </div>
+
+    <img class="image" src="{% static 'img/members.png' %}" alt="members"/>
+</body>
+<footer>
+    {% include "footer.html" %}
+  </footer>
+
+</html>
