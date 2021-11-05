@@ -18,7 +18,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .row {
+  /* .row {
   border-radius: 17px;
   background: #FFFAC9;
   padding: 15px;
@@ -26,7 +26,7 @@
   align-items: center;
   display: flex;
   justify-content: flex-start;
-}
+} */
 .col-sm{
   background-color: #FFFAC9;
   font-size: 25px;
@@ -65,15 +65,15 @@
         <div class="modal-content" style = "border-radius: 17px; padding: 15px; margin-left: auto; margin-right: auto; ">
           <div class="modal-header">
             <div class="container-fluid">
-              <div class="row" style="text-align: left;">
+              <div class="row" style="text-align: left; ">
                 <h5 class="mt-0" style="font-size: 50px; font-weight: bold;">{{user.fullname}}</h5>
               </div>
-              <div class="row" style="text-align: center;">
-                <div class="col-sm" >{{user.gender}}</div>
-                <div class="col-sm">|</div>
-                <div class="col-sm">{{user.DOB}}</div>
-                <div class="col-sm">|</div>
-                <div class="col-sm">{{user.domicile}}</div>
+              <div class="row" style="text-align: center; ">
+                <div class="col-sm" style="background-color: #ffffff; font-size: 100%;" >{{user.gender}}</div>
+                <div class="col-sm" style="background-color: #ffffff; font-size: 100%;">|</div>
+                <div class="col-sm" style="background-color: #ffffff; font-size: 100%;">{{user.DOB}}</div>
+                <div class="col-sm" style="background-color: #ffffff; font-size: 100%;">|</div>
+                <div class="col-sm" style="background-color: #ffffff; font-size: 100%;">{{user.domicile}}</div>
               </div> 
             </div>
           </div>
@@ -99,14 +99,35 @@
 
     <br>
     <div class="friendbox">
-        <div class="row">
-          <div class="col-sm d-flex p-2">
+        <div class="row" style="  border-radius: 17px;
+        background: #FFFAC9;
+        padding: 15px;
+        width: 80%;
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;">
+          <div class="col-sm d-flex p-2" style="  border-radius: 17px;
+          background: #FFFAC9;
+          padding: 15px;
+          width: 80%;
+          align-items: center;
+          display: flex;
+          justify-content: flex-start;">
             {{user.fullname}}
           </div>
-          <div class="col-sm d-flex p-2">
+          <div class="col-sm d-flex p-2" style="  border-radius: 17px;
+          background: #FFFAC9;
+          padding: 15px;
+          width: 80%;
+          align-items: center;
+          display: flex;
+          justify-content: flex-start;">
             {{user.interest}}
           </div>
-          <div class="col-sm">
+          <div class="col-sm" style="background-color: #FFFAC9;
+          font-size: 25px;
+          vertical-align: middle;
+          font-family: futura;">
             <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >Be Mutuals!</button>
           </div>
         </div>
