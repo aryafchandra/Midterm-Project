@@ -44,7 +44,7 @@ FunctionalTest:
     - *django_before_script
   script:
     - coverage run --parallel --include="./*" --omit="manage.py,MidtermProject/*"
-      manage.py test --exclude-tag=functional
+      manage.py test --tag=functional
 
 
 Coverage:

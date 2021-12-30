@@ -3,7 +3,7 @@ from django.urls import reverse
 from selenium import webdriver
 
 
-@tag('functional')
+# @tag('functional')
 class FunctionalTestCase(LiveServerTestCase):
     """Base class for functional test cases with selenium."""
 
